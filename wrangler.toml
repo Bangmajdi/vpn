@@ -7,8 +7,8 @@ account_id = "4eb3d56cfe239a6855b4fd4cc3351678"
 workers_dev = true
 
 [[kv_namespaces]]
-binding = "vpn"
-id = "2796d37a041347039866d6d1731b9113"
+binding = "VPN"
+id = "1384f9c0e80d48219df14e9a2021dc5e"
 
 [build]
 command = "cargo install worker-build && worker-build --release"
