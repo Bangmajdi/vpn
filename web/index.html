@@ -1,257 +1,370 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html>
 <head>
-    <title>Yumi - Profile</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/x-icon" href="https://github.com/user-attachments/assets/b5feabb7-3f20-4028-9436-e3f3307dd2ae">
-    <meta name="description"
-        content="hello 👋 my name is Ahmad Wandi, I am a student at Antasari Banjarmasin State Islamic University, I really like machine learning">
-    <meta name="keywords" content="mayumiwandi, website, proxy, VPN, mayumi wandi, yumi, yui, mayumiyui">
-    <meta name="author" content="mayumiwandi" />
-    <meta name="copyright" content="© 2025 Yumi" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Yumi - Profile" />
-    <meta property="og:description"
-        content="hello, my name is Ahmad Wandi, I am a student at Antasari Banjarmasin State Islamic University, I really like machine learning" />
-    <meta property="og:url" content="https://mayumiwandi.github.io/" />
-    <meta property="og:site_name" content="Yumi - Profile" />
-    <meta property="og:image" content="https://github.com/user-attachments/assets/b5feabb7-3f20-4028-9436-e3f3307dd2ae" />
-    <meta property="og:locale" content="id_ID" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Yumi - Profile" />
-    <meta name="twitter:description"
-        content="hello, my name is Ahmad Wandi, I am a student at Antasari Banjarmasin State Islamic University, I really like machine learning" />
-    <meta name="twitter:image" content="https://github.com/user-attachments/assets/b5feabb7-3f20-4028-9436-e3f3307dd2ae" />
-    <meta name="twitter:site" content="@mayumiwandi" />
-    <meta name="twitter:creator" content="@mayumiwandi" />
-
-    <link rel="canonical" href="https://mayumiwandi.github.io/" />
-    <meta name="robots" content="index, follow" />
-    <meta name="geo.region" content="ID" />
-    <meta name="geo.placename" content="Indonesia" />
-
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <script src="https://kit.fontawesome.com/6fab3a0556.js" crossorigin="anonymous"></script>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-
-    <style>
-        /* copyright Ahmad Wandi */
-
-        :root {
-            font-size: 62.5%;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-       
-        body {
-            background-image: url("https://i.postimg.cc/8zX0j4cX/frieren-buka.jpg"); /* https://i.postimg.cc/d01cfDkp/frieren-limited.jpg*/
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed; /* Added to make background fixed */
-            width: 100%;
-            min-height: 100vh; /* Ensure body takes at least full viewport height */
-            display: flex; /* Use flexbox */
-            flex-direction: column; /* Arrange children vertically */
-        }
-
-        main {
-            flex-grow: 1; /* Allow main to grow and push footer down */
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px; /* Add some padding to prevent content touching edges on small screens */
-        }
-
-        .container {
-            width: 28rem;
-            padding: 1rem 2rem;
-            background-color: rgba(255, 255, 255, 0.45);
-            border-radius: 2rem;
-            border: 0.1rem solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(1.5rem);
-            min-width: 25rem;
-            box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
-            max-width: 95%; /* Added max-width to prevent overflow on very small screens */
-        }
-
-        .image {
-            width: 40%;
-            height: auto;
-            border-radius: 5rem;
-            display: block;
-            margin: 1rem auto;
-        }
-
-        hr {
-            border-color: #673146;
-        }
-
-        h1,
-        .occupation {
-            text-align: center;
-        }
-
-        h1 {
-            font-family: Muli, sans-serif; /* Make sure Muli font is available or linked */
-            font-weight: 700;
-            font-size: 2.3rem;
-        }
-
-        .occupation {
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-            font-family: "Space Mono", monospace; /* Make sure Space Mono font is available or linked */
-        }
-
-        .link-boxes {
-            margin: 2rem 1rem;
-            font-family: Muli, sans-serif; /* Make sure Muli font is available or linked */
-            font-weight: 700;
-            font-size: 1.4em;
-            text-transform: capitalize;
-
-        }
-
-        .link-boxes a {
-            text-decoration: none;
-            display: block;
-            color: #27213b;
-            border: 0.1rem solid #673146;
-            text-align: center;
-            margin: 0.7rem;
-            border-radius: 0.5rem;
-            padding: 0.3rem;
-            transition: all 200ms ease-in-out;
-            box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
-        }
-
-        .link-boxes a:hover {
-            border: 0.1rem solid #27213b;
-            background-color: #01bae9;
-            cursor: pointer;
-        }
-
-        .location {
-            text-align: center;
-            margin: 0.7rem;
-            font-size: 1.2rem;
-            font-family: "Space Mono", monospace; /* Make sure Space Mono font is available or linked */
-        }
-
-        footer {
-            width: 100%; /* Ensure footer takes full width */
-            margin-top: auto; /* Push footer to the bottom */
-            padding: 10px 0; /* Add some padding */
-            color: white; /* Set text color for footer */
-            /* Remove fixed positioning if using flexbox centering */
-            /* position: fixed;
-            bottom: 0;
-            left: 0; */
-        }
-
-        footer p {
-             /* Adjust styling for the paragraph inside footer if needed */
-            margin: 0; /* Remove default paragraph margin */
-            font-size: 1.6rem; /* Ukuran teks copyright di layar besar */
-            font-weight: bold; /* Optional: membuat teks jadi tebal */
-        }
-        .footer-yumi-link {
-            color: inherit; /* Menggunakan warna teks dari parent (warna putih footer) */
-            text-decoration: none; /* Menghilangkan garis bawah default */
-            /* Animasi saat perubahan warna dan garis bawah */
-            transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-        }
-        .footer-yumi-link:hover {
-            color: #01bae9; /* Ganti warna saat disorot, gunakan warna yang kontras */
-            text-decoration: underline; /* Tambahkan garis bawah saat disorot */
-            cursor: pointer; /* Mengubah kursor */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Horizontal offset, Vertical offset, Blur radius, Warna shadow */
-        }
-
-        @media only screen and (min-width:992px) {
-            .container {
-                width: 35rem; /* Allow slightly wider container on larger screens */
-            }
-
-            .image {
-                width: 30%; /* Slightly smaller image on larger screens relative to container */
-            }
-
-            h1 {
-                font-size: 2.8rem;
-            }
-
-            .occupation {
-                font-size: 1.6rem;
-            }
-
-            .link-boxes {
-                font-size: 1.6em;
-            }
-
-            .location {
-                font-size: 1.4rem;
-            }
-
-            footer p {
-                 font-size: 1.6rem;
-            }
-        }
-    </style>
-
-    </head>
-
+  <meta charset="UTF-8" />
+  <title>Subdomain Finder</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121014;
+      color: #d1c4e9;
+      padding: 20px;
+      margin: 0;
+    }
+    h2 {
+      color: #b39ddb;
+      margin-bottom: 10px;
+    }
+    form {
+      margin-bottom: 12px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 280px;
+      border: 1.5px solid #6a1b9a;
+      border-radius: 5px 0 0 5px;
+      background: #1e153a;
+      color: #e1bee7;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input[type="text"]:focus {
+      border-color: #ce93d8;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      border: 1.5px solid #6a1b9a;
+      border-left: none;
+      background: #7e57c2;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      transition: background 0.3s;
+    }
+    button:hover:not(:disabled) {
+      background: #9575cd;
+    }
+    button:disabled {
+      background: #4a148c;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    #spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 3px solid #6a1b9a;
+      border-top-color: #ce93d8;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      border: 1.5px solid #6a1b9a;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #1e153a;
+      box-shadow: 0 0 12px #7e57c2aa;
+    }
+    thead tr {
+      background: #6a1b9a;
+      color: #e1bee7;
+      font-weight: bold;
+    }
+    th, td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #4a148c;
+      font-size: 14px;
+    }
+    tbody tr:nth-child(even) {
+      background: #2a1d58;
+    }
+    tbody tr:hover {
+      background: #4a148c;
+      color: #fff;
+    }
+    .loading {
+      color: #ffcc80;
+      font-style: italic;
+    }
+    .done {
+      color: #a5d6a7;
+      font-weight: 600;
+    }
+    #copyBtn, #downloadBtn, #copySubBtn, #copyIpBtn {
+      margin-top: 14px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background: #7e57c2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #7e57c2cc;
+      transition: background 0.3s;
+    }
+    #copyBtn:hover, #downloadBtn:hover, #copySubBtn:hover, #copyIpBtn:hover {
+      background: #9575cd;
+    }
+    #copyBtn:disabled, #downloadBtn:disabled, #copySubBtn:disabled, #copyIpBtn:disabled {
+      background: #4a148c;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    #downloadBtn {
+      display: none;
+    }
+    #summary {
+      margin-top: 16px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #d1c4e9;
+    }
+  </style>
+</head>
 <body>
-    <main>
-        <div class="container shadow">
-            <img class="image" src="https://i.postimg.cc/MHJ4zGHW/wandi-foto.png" alt="Wandi-Image" loading="lazy">
-            <h1> Yumi </h1>
-            <p class="occupation">I'am a student from Antasari State Islamic University</p>
-            <hr />
-            <div class="link-boxes">
-                <a class="shadow" title="View Yumi GitHub profile" href="https://github.com/mayumiwandi" target="_blank"><i
-                        class="fa fa-github icon" aria-hidden="true"></i> GitHub</a>
+  <h2>Subdomain Finder</h2>
+  <form id="form">
+    <input type="text" name="domain" placeholder="contoh: example.com" required value="" />
+    <button type="submit" id="searchBtn">Cari</button>
+    <span id="spinner" style="display:none;"></span>
+  </form>
 
-                <a class="shadow" title="View Yumi Instagram profile" href="https://www.instagram.com/mayumiwandi/"
-                    target="_blank"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+  <table id="results" style="display:none">
+    <thead>
+      <tr><th>#</th><th>Subdomain</th><th>IP</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-                <a class="shadow" title="View Yumi Facebook profile" href="https://www.facebook.com/mayumiwandi"
-                    target="_blank"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a>
+  <button id="copySubBtn" style="display:none;">Salin Semua Subdomain</button>
+  <button id="copyIpBtn" style="display:none;">Salin Semua IP</button>
+  <button id="copyBtn" style="display:none;">Salin Semua Hasil</button>
+  <button id="downloadBtn">Unduh Hasil</button>
+  <div id="summary"></div>
 
-                <a class="shadow" title="Send Message Telegram" href="https://t.me/Yumi_yui" target="_blank"><i
-                        class="fa-solid fa-paper-plane" aria-hidden="true"></i> Telegram</a>
+  <script>
+    const form = document.getElementById("form");
+    const table = document.getElementById("results");
+    const tbody = table.querySelector("tbody");
+    const copyBtn = document.getElementById("copyBtn");
+    const copySubBtn = document.getElementById("copySubBtn");
+    const copyIpBtn = document.getElementById("copyIpBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const spinner = document.getElementById("spinner");
+    const searchBtn = document.getElementById("searchBtn");
+    const summary = document.getElementById("summary");
 
-                <a class="shadow" title="View Yumi Tiktok profile" href="https://www.tiktok.com/@mayumiwandi" target="_blank"><i
-                        class="fa-brands fa-tiktok" aria-hidden="true"></i> Tiktok</a>
-            </div>
-            <hr />
-            <p class="location"><i class="fa fa-map-marker icon" aria-hidden="true"> </i> Banjarmasin, Indonesia</p>
-        </div>
-    </main>
-    <footer class="text-center">
-        <p>&#169;
-          <a href="https://t.me/Yumi_yui" class="footer-yumi-link" title="Link terkait Yumi">Yumi</a>, 2025</p>
-    </footer>
+    downloadBtn.style.display = "none";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const domain = form.domain.value.trim();
+      if (!domain) return;
+
+      tbody.innerHTML = "";
+      table.style.display = "table";
+      copyBtn.style.display = "none";
+      copySubBtn.style.display = "none";
+      copyIpBtn.style.display = "none";
+      downloadBtn.style.display = "none";
+      summary.textContent = "";
+
+      searchBtn.disabled = true;
+      spinner.style.display = "inline-block";
+
+      try {
+        let subdomains = await fetchSubdomains(domain);
+
+        subdomains.forEach((sub, i) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${i + 1}</td>
+            <td>${sub.subdomain}</td>
+            <td class="ip loading">Menunggu...</td>
+          `;
+          tbody.appendChild(row);
+          sub.row = row;
+        });
+
+        await Promise.all(subdomains.map(async (sub) => {
+  try {
+    const res = await fetch("https://subf12.lifetime01.workers.dev/?sub=" + encodeURIComponent(sub.subdomain));
+    const json = await res.json();
+    const ip = json.ip || "-";
+    const cell = sub.row.querySelector(".ip");
+    cell.textContent = ip;
+    cell.classList.remove("loading");
+    cell.classList.add("done");
+  } catch {
+    const cell = sub.row.querySelector(".ip");
+    cell.textContent = "-";
+    cell.classList.remove("loading");
+    cell.classList.add("done");
+  }
+}));
+
+
+        copyBtn.style.display = "inline-block";
+        copySubBtn.style.display = "inline-block";
+        copyIpBtn.style.display = "inline-block";
+        downloadBtn.style.display = "inline-block";
+        summary.textContent = "Total Subdomain: " + subdomains.length;
+      } catch (err) {
+        alert("Terjadi kesalahan saat mengambil data. Coba lagi.");
+        console.error(err);
+      } finally {
+        searchBtn.disabled = false;
+        spinner.style.display = "none";
+      }
+    });
+
+    copyBtn.addEventListener("click", () => {
+      const lines = [];
+      for (const row of tbody.querySelectorAll("tr")) {
+        const cols = row.querySelectorAll("td");
+        lines.push(cols[1].textContent + " - " + cols[2].textContent);
+      }
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
+        alert("Hasil berhasil disalin!");
+      });
+    });
+
+    copySubBtn.addEventListener("click", () => {
+      const lines = [];
+      for (const row of tbody.querySelectorAll("tr")) {
+        lines.push(row.children[1].textContent);
+      }
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
+        alert("Semua subdomain berhasil disalin!");
+      });
+    });
+
+    copyIpBtn.addEventListener("click", () => {
+      const lines = [];
+      for (const row of tbody.querySelectorAll("tr")) {
+        lines.push(row.children[2].textContent);
+      }
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
+        alert("Semua IP berhasil disalin!");
+      });
+    });
+
+    downloadBtn.addEventListener("click", () => {
+      const lines = [];
+      for (const row of tbody.querySelectorAll("tr")) {
+        const cols = row.querySelectorAll("td");
+        lines.push(cols[1].textContent + " - " + cols[2].textContent);
+      }
+      const blob = new Blob([lines.join("\n")], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "subdomain_result.txt";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    async function fetchSubdomains(domain) {
+      const sources = [
+        fetchFromCrtsh(domain).then(data => data.map(d => ({ subdomain: d }))),
+        fetchFromRapid(domain).then(data => data.map(d => ({ subdomain: d }))),
+        fetchFromAlien(domain).then(data => data.map(d => ({ subdomain: d }))),
+        fetchFromAnubis(domain).then(data => data.map(d => ({ subdomain: d }))),
+        fetchFromHackertarget(domain).then(data => data.map(d => ({ subdomain: d }))),
+        fetchFromCertSpotter(domain).then(data => data.map(d => ({ subdomain: d })))
+      ];
+
+      const settled = await Promise.allSettled(sources);
+      const seen = new Set();
+      const result = [];
+      for (const s of settled) {
+        if (s.status === "fulfilled") {
+          for (const item of s.value) {
+            if (!seen.has(item.subdomain)) {
+              seen.add(item.subdomain);
+              result.push(item);
+            }
+          }
+        }
+      }
+
+      return result.sort((a, b) => a.subdomain.localeCompare(b.subdomain));
+    }
+
+    async function fetchFromCrtsh(domain) {
+      try {
+        const res = await fetch("https://crt.sh/?q=%25." + domain + "&output=json");
+        const json = await res.json();
+        return [...new Set(json.map(c => c.name_value.split("\n")).flat())].filter(s => s.endsWith(domain));
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchFromRapid(domain) {
+      try {
+        const res = await fetch("https://rapiddns.io/subdomain/" + domain + "?full=1");
+        const text = await res.text();
+        return [...text.matchAll(new RegExp(">([a-z0-9_.-]+\." + domain.replace(/\./g,"\.") + ")<\/td>", "g"))].map(m => m[1]);
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchFromAlien(domain) {
+      try {
+        const res = await fetch("https://otx.alienvault.com/api/v1/indicators/domain/" + domain + "/passive_dns");
+        const json = await res.json();
+        return json.passive_dns.map(d => d.hostname).filter(s => s.endsWith(domain));
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchFromAnubis(domain) {
+      try {
+        const res = await fetch("https://jldc.me/anubis/subdomains/" + domain);
+        const text = await res.text();
+        return [...new Set(text.split("\n").filter(s => s && s.endsWith(domain)))];
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchFromHackertarget(domain) {
+      try {
+        const res = await fetch("https://api.hackertarget.com/hostsearch/?q=" + domain);
+        const text = await res.text();
+        return [...new Set(text.split("\n").map(l => l.split(",")[0]).filter(s => s.endsWith(domain)))];
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchFromCertSpotter(domain) {
+      try {
+        const res = await fetch("https://api.certspotter.com/v1/issuances?domain=" + domain + "&include_subdomains=true&expand=dns_names");
+        const json = await res.json();
+        const subs = [];
+        for (const i of json) {
+          if (i.dns_names) {
+            subs.push(...i.dns_names.filter(s => s.endsWith(domain)));
+          }
+        }
+        return [...new Set(subs)];
+      } catch {
+        return [];
+      }
+    }
+  </script>
 </body>
 </html>
