@@ -1,370 +1,277 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Subdomain Finder</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121014;
-      color: #d1c4e9;
-      padding: 20px;
-      margin: 0;
-    }
-    h2 {
-      color: #b39ddb;
-      margin-bottom: 10px;
-    }
-    form {
-      margin-bottom: 12px;
-    }
-    input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
-      width: 280px;
-      border: 1.5px solid #6a1b9a;
-      border-radius: 5px 0 0 5px;
-      background: #1e153a;
-      color: #e1bee7;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-    input[type="text"]:focus {
-      border-color: #ce93d8;
-    }
-    button {
-      padding: 10px 16px;
-      font-size: 16px;
-      border: 1.5px solid #6a1b9a;
-      border-left: none;
-      background: #7e57c2;
-      color: white;
-      cursor: pointer;
-      border-radius: 0 5px 5px 0;
-      transition: background 0.3s;
-    }
-    button:hover:not(:disabled) {
-      background: #9575cd;
-    }
-    button:disabled {
-      background: #4a148c;
-      cursor: not-allowed;
-      opacity: 0.6;
-    }
-    #spinner {
-      display: inline-block;
-      width: 16px; height: 16px;
-      border: 3px solid #6a1b9a;
-      border-top-color: #ce93d8;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      vertical-align: middle;
-      margin-left: 10px;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      border: 1.5px solid #6a1b9a;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #1e153a;
-      box-shadow: 0 0 12px #7e57c2aa;
-    }
-    thead tr {
-      background: #6a1b9a;
-      color: #e1bee7;
-      font-weight: bold;
-    }
-    th, td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #4a148c;
-      font-size: 14px;
-    }
-    tbody tr:nth-child(even) {
-      background: #2a1d58;
-    }
-    tbody tr:hover {
-      background: #4a148c;
-      color: #fff;
-    }
-    .loading {
-      color: #ffcc80;
-      font-style: italic;
-    }
-    .done {
-      color: #a5d6a7;
-      font-weight: 600;
-    }
-    #copyBtn, #downloadBtn, #copySubBtn, #copyIpBtn {
-      margin-top: 14px;
-      padding: 8px 16px;
-      font-size: 14px;
-      background: #7e57c2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 2px 8px #7e57c2cc;
-      transition: background 0.3s;
-    }
-    #copyBtn:hover, #downloadBtn:hover, #copySubBtn:hover, #copyIpBtn:hover {
-      background: #9575cd;
-    }
-    #copyBtn:disabled, #downloadBtn:disabled, #copySubBtn:disabled, #copyIpBtn:disabled {
-      background: #4a148c;
-      cursor: not-allowed;
-      opacity: 0.6;
-    }
-    #downloadBtn {
-      display: none;
-    }
-    #summary {
-      margin-top: 16px;
-      font-size: 15px;
-      font-weight: bold;
-      color: #d1c4e9;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Checker</title>
+    <meta property="og:title" content="Proxy Checker">
+    <meta property="og:description" content="Cek status dan informasi proksi Anda dengan cepat.">
+    <meta property="og:image" content="https://kere.us.kg/img/botvpn.jpg">
+    <meta property="og:url" content="https://kere.us.kg/img/botvpn.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
+    <meta name="twitter:image" content="https://kere.us.kg/img/botvpn.jpg">
+    <link href="https://kere.us.kg/img/botvpn.jpg" rel="icon" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1, footer p {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes moveColors {
+            0% { background-position: 200%; }
+            100% { background-position: -200%; }
+        }
+
+        #loading {
+            display: none;
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+            background-size: 200%;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: moveColors 3s linear infinite;
+            margin-top: 15px;
+        }
+
+        table {
+            margin: 20px auto 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+    </style>
 </head>
 <body>
-  <h2>Subdomain Finder</h2>
-  <form id="form">
-    <input type="text" name="domain" placeholder="contoh: example.com" required value="" />
-    <button type="submit" id="searchBtn">Cari</button>
-    <span id="spinner" style="display:none;"></span>
-  </form>
 
-  <table id="results" style="display:none">
-    <thead>
-      <tr><th>#</th><th>Subdomain</th><th>IP</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+<header>
+    <h1>Proxy Checker checker-proxy-vless.pages.dev</h1>
+</header>
 
-  <button id="copySubBtn" style="display:none;">Salin Semua Subdomain</button>
-  <button id="copyIpBtn" style="display:none;">Salin Semua IP</button>
-  <button id="copyBtn" style="display:none;">Salin Semua Hasil</button>
-  <button id="downloadBtn">Unduh Hasil</button>
-  <div id="summary"></div>
+<div class="container">
+    <input type="text" id="ipInput" placeholder="Contoh: 192.168.1.1:443" />
+    <button onclick="checkProxy()">Cek Proxy</button>
+    <p id="loading">Loading...</p>
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>ISP</td><td data-key="isp">-</td></tr>
+            <tr><td>ASN</td><td data-key="asn">-</td></tr>
+            <tr><td>City</td><td data-key="city">-</td></tr>
+            <tr><td>Country</td><td data-key="country">-</td></tr>
+            <tr><td>IP</td><td data-key="ip">-</td></tr>
+            <tr><td>Port</td><td data-key="port">-</td></tr>
+            <tr><td>Origin</td><td data-key="origin">-</td></tr>
+            <tr><td>VPN</td><td data-key="vpn">-</td></tr>
+            <tr><td>WARP</td><td data-key="warp">-</td></tr>
+            <tr><td>Status</td><td data-key="status">-</td></tr>
+            <tr><td>Delay</td><td data-key="delay">-</td></tr>
+        </tbody>
+    </table>
+</div>
 
-  <script>
-    const form = document.getElementById("form");
-    const table = document.getElementById("results");
-    const tbody = table.querySelector("tbody");
-    const copyBtn = document.getElementById("copyBtn");
-    const copySubBtn = document.getElementById("copySubBtn");
-    const copyIpBtn = document.getElementById("copyIpBtn");
-    const downloadBtn = document.getElementById("downloadBtn");
-    const spinner = document.getElementById("spinner");
-    const searchBtn = document.getElementById("searchBtn");
-    const summary = document.getElementById("summary");
+<footer>
+    <p>&copy; 2025 Proxy Checker. All rights reserved.</p>
+</footer>
 
-    downloadBtn.style.display = "none";
+<script>
+    // Objek bendera negara dipindahkan ke sini
+    const flags = {
+        "AD": "🇦🇩", "AE": "🇦🇪", "AF": "🇦🇫", "AG": "🇦🇬", "AI": "🇦🇮", "AL": "🇦🇱", "AM": "🇦🇲", "AO": "🇦🇴",
+        "AR": "🇦🇷", "AT": "🇦🇹", "AU": "🇦🇺", "AW": "🇦🇼", "AZ": "🇦🇿", "BA": "🇧🇦", "BB": "🇧🇧", "BD": "🇧🇩",
+        "BE": "🇧🇪", "BF": "🇧🇫", "BG": "🇧🇬", "BH": "🇧🇭", "BI": "🇧🇮", "BJ": "🇧🇯", "BN": "🇧🇳", "BO": "🇧🇴",
+        "BR": "🇧🇷", "BS": "🇧🇸", "BT": "🇧🇹", "BW": "🇧🇼", "BY": "🇧🇾", "BZ": "🇧🇿", "CA": "🇨🇦", "CD": "🇨🇩",
+        "CF": "🇨🇫", "CG": "🇨🇬", "CH": "🇨🇭", "CI": "🇨🇮", "CL": "🇨🇱", "CM": "🇨🇲", "CN": "🇨🇳", "CO": "🇨🇴",
+        "CR": "🇨🇷", "CU": "🇨🇺", "CV": "🇨🇻", "CY": "🇨🇾", "CZ": "🇨🇿", "DE": "🇩🇪", "DJ": "🇩🇯", "DK": "🇩🇰",
+        "DM": "🇩🇲", "DO": "🇩🇴", "DZ": "🇩🇿", "EC": "🇪🇨", "EE": "🇪🇪", "EG": "🇪🇬", "ER": "🇪🇷", "ES": "🇪🇸",
+        "ET": "🇪🇹", "FI": "🇫🇮", "FJ": "🇫🇯", "FM": "🇫🇲", "FR": "🇫🇷", "GA": "🇬🇦", "GB": "🇬🇧", "GD": "🇬🇩",
+        "GE": "🇬🇪", "GH": "🇬🇭", "GM": "🇬🇲", "GN": "🇬🇳", "GQ": "🇬🇶", "GR": "🇬🇷", "GT": "🇬🇹", "GW": "🇬🇼",
+        "GY": "🇬🇾", "HN": "🇭🇳", "HR": "🇭🇷", "HT": "🇭🇹", "HU": "🇭🇺", "ID": "🇮🇩", "IE": "🇮🇪", "IL": "🇮🇱",
+        "IN": "🇮🇳", "IQ": "🇮🇶", "IR": "🇮🇷", "IS": "🇮🇸", "IT": "🇮🇹", "JM": "🇯🇲", "JO": "🇯🇴", "JP": "🇯🇵",
+        "KE": "🇰🇪", "KG": "🇰🇬", "KH": "🇰🇭", "KI": "🇰🇮", "KM": "🇰🇲", "KN": "🇰🇳", "KP": "🇰🇵", "KR": "🇰🇷",
+        "KW": "🇰🇼", "KZ": "🇰🇿", "LA": "🇱🇦", "LB": "🇱🇧", "LC": "🇱🇨", "LI": "🇱🇮", "LK": "🇱🇰", "LR": "🇱🇷",
+        "LS": "🇱🇸", "LT": "🇱🇹", "LU": "🇱🇺", "LV": "🇱🇻", "LY": "🇱🇾", "MA": "🇲🇦", "MC": "🇲🇨", "MD": "🇲🇩",
+        "ME": "🇲🇪", "MG": "🇲🇬", "MH": "🇲🇭", "MK": "🇲🇰", "ML": "🇲🇱", "MM": "🇲🇲", "MN": "🇲🇳", "MR": "🇲🇷",
+        "MT": "🇲🇹", "MU": "🇲🇺", "MV": "🇲🇻", "MW": "🇲🇼", "MX": "🇲🇽", "MY": "🇲🇾", "MZ": "🇲🇿", "NA": "🇳🇦",
+        "NE": "🇳🇪", "NG": "🇳🇬", "NI": "🇳🇮", "NL": "🇳🇱", "NO": "🇳🇴", "NP": "🇳🇵", "NR": "🇳🇷", "NZ": "🇳🇿",
+        "OM": "🇴🇲", "PA": "🇵🇦", "PE": "🇵🇪", "PG": "🇵🇬", "PH": "🇵🇭", "PK": "🇵🇰", "PL": "🇵🇱", "PT": "🇵🇹",
+        "PW": "🇵🇼", "PY": "🇵🇾", "QA": "🇶🇦", "RO": "🇷🇴", "RU": "🇷🇺", "RW": "🇷🇼", "SA": "🇸🇦", "SB": "🇸🇧",
+        "SC": "🇸🇨", "SD": "🇸🇩", "SE": "🇸🇪", "SG": "🇸🇬", "SI": "🇸🇮", "SK": "🇸🇰", "SL": "🇸🇱", "SM": "🇸🇲",
+        "SN": "🇸🇳", "SO": "🇸🇴", "SR": "🇸🇷", "SS": "🇸🇸", "ST": "🇸🇹", "SV": "🇸🇻", "SY": "🇸🇾", "SZ": "🇸🇿",
+        "TD": "🇹🇩", "TG": "🇹🇬", "TH": "🇹🇭", "TJ": "🇹🇯", "TL": "🇹🇱", "TM": "🇹🇲", "TN": "🇹🇳", "TO": "🇹🇴",
+        "TR": "🇹🇷", "TT": "🇹🇹", "TV": "🇹🇻", "TZ": "🇹🇿", "UA": "🇺🇦", "UG": "🇺🇬", "US": "🇺🇸", "UY": "🇺🇾",
+        "UZ": "🇺🇿", "VA": "🇻🇦", "VC": "🇻🇨", "VE": "🇻🇪", "VN": "🇻🇳", "VU": "🇻🇺", "WF": "🇼🇫", "WS": "🇼🇸",
+        "YE": "🇾🇪", "ZA": "🇿🇦", "ZM": "🇿🇲", "ZW": "🇿🇼"
+    };
+    
+    // Saat halaman dimuat, periksa data di localStorage
+    window.onload = function() {
+        const storedData = localStorage.getItem("proxyData");
+        if (storedData) {
+            const data = JSON.parse(storedData);
+            updateTable(data);
+        }
+    };
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const domain = form.domain.value.trim();
-      if (!domain) return;
+    async function checkProxy() {
+        const ipPort = document.getElementById("ipInput").value;
+        if (!ipPort) {
+            alert("Masukkan IP:Port terlebih dahulu!");
+            return;
+        }
 
-      tbody.innerHTML = "";
-      table.style.display = "table";
-      copyBtn.style.display = "none";
-      copySubBtn.style.display = "none";
-      copyIpBtn.style.display = "none";
-      downloadBtn.style.display = "none";
-      summary.textContent = "";
+        const [ip, port] = ipPort.split(":");
+        if (!ip || !port) {
+            alert("Format IP:PORT tidak valid.");
+            return;
+        }
 
-      searchBtn.disabled = true;
-      spinner.style.display = "inline-block";
+        document.getElementById("loading").style.display = "block";
+        // Reset tabel sebelum fetch baru
+        const initialData = {
+          isp: "-", asn: "-", city: "-", country: "-", ip: ip, port: port,
+          origin: "-", vpn: "-", warp: "-", status: "Checking...", delay: "-"
+        };
+        updateTable(initialData);
 
-      try {
-        let subdomains = await fetchSubdomains(domain);
+        const apiUrl = `https://p01--boiling-frame--kw6dd7bjv2nr.code.run/check?ip=${ip}&port=${port}&host=speed.cloudflare.com&tls=true`;
 
-        subdomains.forEach((sub, i) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${i + 1}</td>
-            <td>${sub.subdomain}</td>
-            <td class="ip loading">Menunggu...</td>
-          `;
-          tbody.appendChild(row);
-          sub.row = row;
-        });
-
-        await Promise.all(subdomains.map(async (sub) => {
-  try {
-    const res = await fetch("https://subf12.lifetime01.workers.dev/?sub=" + encodeURIComponent(sub.subdomain));
-    const json = await res.json();
-    const ip = json.ip || "-";
-    const cell = sub.row.querySelector(".ip");
-    cell.textContent = ip;
-    cell.classList.remove("loading");
-    cell.classList.add("done");
-  } catch {
-    const cell = sub.row.querySelector(".ip");
-    cell.textContent = "-";
-    cell.classList.remove("loading");
-    cell.classList.add("done");
-  }
-}));
-
-
-        copyBtn.style.display = "inline-block";
-        copySubBtn.style.display = "inline-block";
-        copyIpBtn.style.display = "inline-block";
-        downloadBtn.style.display = "inline-block";
-        summary.textContent = "Total Subdomain: " + subdomains.length;
-      } catch (err) {
-        alert("Terjadi kesalahan saat mengambil data. Coba lagi.");
-        console.error(err);
-      } finally {
-        searchBtn.disabled = false;
-        spinner.style.display = "none";
-      }
-    });
-
-    copyBtn.addEventListener("click", () => {
-      const lines = [];
-      for (const row of tbody.querySelectorAll("tr")) {
-        const cols = row.querySelectorAll("td");
-        lines.push(cols[1].textContent + " - " + cols[2].textContent);
-      }
-      navigator.clipboard.writeText(lines.join("\n")).then(() => {
-        alert("Hasil berhasil disalin!");
-      });
-    });
-
-    copySubBtn.addEventListener("click", () => {
-      const lines = [];
-      for (const row of tbody.querySelectorAll("tr")) {
-        lines.push(row.children[1].textContent);
-      }
-      navigator.clipboard.writeText(lines.join("\n")).then(() => {
-        alert("Semua subdomain berhasil disalin!");
-      });
-    });
-
-    copyIpBtn.addEventListener("click", () => {
-      const lines = [];
-      for (const row of tbody.querySelectorAll("tr")) {
-        lines.push(row.children[2].textContent);
-      }
-      navigator.clipboard.writeText(lines.join("\n")).then(() => {
-        alert("Semua IP berhasil disalin!");
-      });
-    });
-
-    downloadBtn.addEventListener("click", () => {
-      const lines = [];
-      for (const row of tbody.querySelectorAll("tr")) {
-        const cols = row.querySelectorAll("td");
-        lines.push(cols[1].textContent + " - " + cols[2].textContent);
-      }
-      const blob = new Blob([lines.join("\n")], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "subdomain_result.txt";
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-
-    async function fetchSubdomains(domain) {
-      const sources = [
-        fetchFromCrtsh(domain).then(data => data.map(d => ({ subdomain: d }))),
-        fetchFromRapid(domain).then(data => data.map(d => ({ subdomain: d }))),
-        fetchFromAlien(domain).then(data => data.map(d => ({ subdomain: d }))),
-        fetchFromAnubis(domain).then(data => data.map(d => ({ subdomain: d }))),
-        fetchFromHackertarget(domain).then(data => data.map(d => ({ subdomain: d }))),
-        fetchFromCertSpotter(domain).then(data => data.map(d => ({ subdomain: d })))
-      ];
-
-      const settled = await Promise.allSettled(sources);
-      const seen = new Set();
-      const result = [];
-      for (const s of settled) {
-        if (s.status === "fulfilled") {
-          for (const item of s.value) {
-            if (!seen.has(item.subdomain)) {
-              seen.add(item.subdomain);
-              result.push(item);
+        try {
+            const startTime = Date.now();
+            const apiResponse = await fetch(apiUrl);
+            const endTime = Date.now();
+            
+            if (!apiResponse.ok) {
+                throw new Error(`API returned status: ${apiResponse.status}`);
             }
-          }
+
+            let latency = endTime - startTime;
+            // Penyesuaian perhitungan latensi
+            latency = latency + "ms";
+
+            const result = await apiResponse.json();
+            
+            const countryCode = result.country?.split(" ")[0] || "Unknown";
+            const countryFlag = flags[countryCode] || "🏳️";
+
+            const responseData = {
+                isp: result.asOrganization,
+                asn: result.asn,
+                city: result.city,
+                country: `${countryCode} ${countryFlag}`,
+                ip: result.ip,
+                port: port,
+                origin: result.origin,
+                vpn: result.proxyip,
+                warp: result.warp,
+                status: result.proxyip ? "ACTIVE ✅" : "DEAD ❌",
+                delay: latency
+            };
+            
+            localStorage.setItem("proxyData", JSON.stringify(responseData));
+            updateTable(responseData);
+
+        } catch (error) {
+            console.error("Fetch error:", error);
+            const errorData = {
+                isp: "Unknown",
+                asn: "Unknown",
+                city: "Unknown",
+                country: "Unknown",
+                ip: ip,
+                port: port,
+                origin: "Unknown",
+                vpn: "Unknown",
+                warp: "Unknown",
+                status: "DEAD ❌",
+                delay: "N/A"
+            };
+            localStorage.setItem("proxyData", JSON.stringify(errorData));
+            updateTable(errorData);
+        } finally {
+             document.getElementById("loading").style.display = "none";
         }
-      }
-
-      return result.sort((a, b) => a.subdomain.localeCompare(b.subdomain));
     }
 
-    async function fetchFromCrtsh(domain) {
-      try {
-        const res = await fetch("https://crt.sh/?q=%25." + domain + "&output=json");
-        const json = await res.json();
-        return [...new Set(json.map(c => c.name_value.split("\n")).flat())].filter(s => s.endsWith(domain));
-      } catch {
-        return [];
-      }
+    function updateTable(data) {
+        const tbody = document.getElementById("resultTable").querySelector("tbody");
+        tbody.querySelectorAll("td[data-key]").forEach((cell) => {
+            const key = cell.getAttribute("data-key");
+            cell.textContent = data[key] !== undefined && data[key] !== "" ? data[key] : "-";
+        });
     }
 
-    async function fetchFromRapid(domain) {
-      try {
-        const res = await fetch("https://rapiddns.io/subdomain/" + domain + "?full=1");
-        const text = await res.text();
-        return [...text.matchAll(new RegExp(">([a-z0-9_.-]+\." + domain.replace(/\./g,"\.") + ")<\/td>", "g"))].map(m => m[1]);
-      } catch {
-        return [];
-      }
-    }
+</script>
 
-    async function fetchFromAlien(domain) {
-      try {
-        const res = await fetch("https://otx.alienvault.com/api/v1/indicators/domain/" + domain + "/passive_dns");
-        const json = await res.json();
-        return json.passive_dns.map(d => d.hostname).filter(s => s.endsWith(domain));
-      } catch {
-        return [];
-      }
-    }
-
-    async function fetchFromAnubis(domain) {
-      try {
-        const res = await fetch("https://jldc.me/anubis/subdomains/" + domain);
-        const text = await res.text();
-        return [...new Set(text.split("\n").filter(s => s && s.endsWith(domain)))];
-      } catch {
-        return [];
-      }
-    }
-
-    async function fetchFromHackertarget(domain) {
-      try {
-        const res = await fetch("https://api.hackertarget.com/hostsearch/?q=" + domain);
-        const text = await res.text();
-        return [...new Set(text.split("\n").map(l => l.split(",")[0]).filter(s => s.endsWith(domain)))];
-      } catch {
-        return [];
-      }
-    }
-
-    async function fetchFromCertSpotter(domain) {
-      try {
-        const res = await fetch("https://api.certspotter.com/v1/issuances?domain=" + domain + "&include_subdomains=true&expand=dns_names");
-        const json = await res.json();
-        const subs = [];
-        for (const i of json) {
-          if (i.dns_names) {
-            subs.push(...i.dns_names.filter(s => s.endsWith(domain)));
-          }
-        }
-        return [...new Set(subs)];
-      } catch {
-        return [];
-      }
-    }
-  </script>
 </body>
 </html>
